@@ -1,0 +1,25 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WPFInk" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="WPFInk.InkFrame" Width="Auto" mc:Ignorable="d" Loaded="UserControl_Loaded">
+    <Grid Name="LayoutRoot">
+        <Rectangle x:Name="rectangle1" Stroke="Black" Fill="Silver" />
+		<local:PanelVideoShow x:Name="panelVideoShow" Margin="4,4,0,0" Grid.Row="1" Grid.RowSpan="2" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+	  	<local:NodeEditorAndPlayShow x:Name="pointView" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Grid.Row="1" BorderBrush="#FF060000" Grid.RowSpan="2" Visibility="Collapsed"/>
+	  	<Rectangle Fill="White" Margin="4" Visibility="Collapsed"/>
+        <InkCanvas Margin="4" x:Name="_inkCanvas" UseCustomCursor="True" Cursor="Pen">
+            <InkCanvas.RenderTransform>
+                <ScaleTransform x:Name="InkCanvasScaleTrans" CenterX="{Binding ActualWidth, ElementName=_inkCanvas}" CenterY="0"/>
+            </InkCanvas.RenderTransform>
+        </InkCanvas>
+        <local:PieMenu x:Name="OperatePieMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Margin="0"/> 
+        <Button x:Name="LoadSketchButton" Click="LoadSketchButton_Click" VerticalAlignment="Top" Height="24" Margin="200,8,160,0" BorderThickness="100,5,0,0" Width="80" Visibility="Collapsed">Load Sketch</Button>
+        <local:ImageSelector x:Name="_imageSelector" Margin="0,0,58,0" Visibility="Collapsed"/>
+      	<local:PeopleImageSelector x:Name="_peopleImageSelector" Margin="0,0,58,0" Visibility="Collapsed"/>
+      	<Label x:Name="message" Margin="4,0,33,4" VerticalAlignment="Top" Height="25" Content="" Visibility="Visible" />
+      	<Button x:Name="ClearMessage" Visibility="Hidden" HorizontalAlignment="Right" VerticalAlignment="Top" Width="29" Content="C" Click="ClearMessage_Click" Height="29"/>
+      	<local:PentagramExtractive x:Name="_pentagramExtractive" Visibility="Collapsed" Width="400" Height="400" Margin="6,366,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+      	<local:MyprogressBar x:Name="_myprogressBar" Visibility="Collapsed"/>
+		<local:ThumbVideoPlayer x:Name="_thumbVideoPlayer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="160" Visibility="Collapsed"/>
+	  </Grid>
+</UserControl>

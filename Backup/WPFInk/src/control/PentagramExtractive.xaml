@@ -1,0 +1,20 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:local="clr-namespace:WPFInk"
+	x:Class="WPFInk.PentagramExtractive"
+	x:Name="UserControl"
+	d:DesignWidth="158" d:DesignHeight="276">
+	<Grid x:Name="LayoutRoot" Margin="0">
+		<Rectangle Fill="#7FFFFFFF" Stroke="Black"  HorizontalAlignment="Left" RadiusX="5" RadiusY="5" Width="196"/>
+		<local:UserControlHead x:Name="_head" VerticalAlignment="Top" HorizontalAlignment="Left" d:LayoutOverrides="Height" Width="196"/>
+        <ListBox x:Name="pentagramListBox" Background="#7FFFFFFF"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,21,0,0" Height="375" Width="196">
+            <!--<ListBoxItem Width="375" Height="80" Content="a"/>
+            <ListBoxItem Width="375" Height="80" Content="b"/>
+            <ListBoxItem Width="375" Height="80" Content="c"/>-->
+        </ListBox>
+    </Grid>
+</UserControl>

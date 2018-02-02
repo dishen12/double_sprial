@@ -1,0 +1,183 @@
+﻿<Application
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:ic="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions" 
+    xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+     x:Class="WPFInk.App" mc:Ignorable="d" Startup="Application_Startup">
+    <!--x:Class="WPFInk.App" mc:Ignorable="d" StartupUri="VideoSummarizationControl.xaml">-->
+    <Application.Resources>
+    	<Style x:Key="ButtonFocusVisual">
+    		<Setter Property="Control.Template">
+    			<Setter.Value>
+    				<ControlTemplate>
+    					<Rectangle Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1" Margin="3" SnapsToDevicePixels="true"/>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<LinearGradientBrush x:Key="ButtonNormalBackgroundFill" EndPoint="0.5,1" StartPoint="0.5,0">
+    		<GradientStop Color="#FFFFFFFF" Offset="0"/>
+    		<GradientStop Color="#FFF0F0EA" Offset="0.9"/>
+    	</LinearGradientBrush>
+    	<SolidColorBrush x:Key="ButtonBorder" Color="#FF003C74"/>
+    	<ControlTemplate x:Key="ButtonStyle" TargetType="{x:Type Button}">
+    		<ControlTemplate.Resources>
+    			<Storyboard x:Key="Border">
+    				<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+    					<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+    					<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+    				</DoubleAnimationUsingKeyFrames>
+    			</Storyboard>
+    			<Storyboard x:Key="BorderOff">
+    				<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+    					<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+    					<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0"/>
+    				</DoubleAnimationUsingKeyFrames>
+    			</Storyboard>
+    		</ControlTemplate.Resources>
+    		<Grid x:Name="grid">
+    			<!--<VisualStateManager.CustomVisualStateManager>
+    				<ic:ExtendedVisualStateManager/>
+    			</VisualStateManager.CustomVisualStateManager>-->
+    			<VisualStateManager.VisualStateGroups>
+    				<VisualStateGroup x:Name="Common" ic:ExtendedVisualStateManager.UseFluidLayout="True">
+    					<VisualState x:Name="MouseOver">
+    						<Storyboard>
+    							<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+    								<SplineThicknessKeyFrame KeyTime="00:00:00" Value="1,1,-1,-1"/>
+    							</ThicknessAnimationUsingKeyFrames>
+    						</Storyboard>
+    					</VisualState>
+    					<VisualState x:Name="Normal"/>
+    					<VisualState x:Name="Pressed">
+    						<Storyboard>
+    							<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+    								<SplineThicknessKeyFrame KeyTime="00:00:00" Value="2,2,-2,-2"/>
+    							</ThicknessAnimationUsingKeyFrames>
+    							<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)">
+    								<SplineColorKeyFrame KeyTime="00:00:00" Value="#FF27272C"/>
+    							</ColorAnimationUsingKeyFrames>
+    						</Storyboard>
+    					</VisualState>
+    				</VisualStateGroup>
+    				<VisualStateGroup x:Name="Focus">
+    					<VisualState x:Name="Focused">
+    						<Storyboard>
+    							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+    								<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+    							</DoubleAnimationUsingKeyFrames>
+    						</Storyboard>
+    					</VisualState>
+    					<VisualState x:Name="Unfocused"/>
+    				</VisualStateGroup>
+    			</VisualStateManager.VisualStateGroups>
+    			<Rectangle x:Name="rectangle" Fill="White" Stroke="#FF6F9EB7" RadiusX="3" RadiusY="3" Opacity="0"/>
+    			<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+    		</Grid>
+    	</ControlTemplate>
+    	<Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+    		<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+    		<Setter Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}"/>
+    		<Setter Property="BorderBrush" Value="{StaticResource ButtonBorder}"/>
+    		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+    		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+    		<Setter Property="VerticalContentAlignment" Value="Center"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="Common">
+									<VisualState x:Name="Normal"/>
+									<VisualState x:Name="MouseOver">
+										<Storyboard>
+											<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+												<SplineThicknessKeyFrame KeyTime="00:00:00" Value="1,1,-1,-1"/>
+											</ThicknessAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Pressed">
+										<Storyboard>
+											<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+												<SplineThicknessKeyFrame KeyTime="00:00:00" Value="0"/>
+											</ThicknessAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+    						<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+    					</Grid>
+    					<ControlTemplate.Triggers>
+    						<Trigger Property="IsKeyboardFocused" Value="true"/>
+    						<Trigger Property="ToggleButton.IsChecked" Value="true"/>
+    						<Trigger Property="IsEnabled" Value="false">
+    							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+    						</Trigger>
+    					</ControlTemplate.Triggers>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+         
+    	<Style x:Key="ThumbButtonStyle" TargetType="{x:Type Button}">
+    		<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+    		<Setter Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}"/>
+    		<Setter Property="BorderBrush" Value="{StaticResource ButtonBorder}"/>
+    		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+    		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+    		<Setter Property="VerticalContentAlignment" Value="Center"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type Button}">
+    					<ControlTemplate.Resources>
+    						<Storyboard x:Key="ThumbStoryBoard">
+    							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.Opacity)">
+    								<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1"/>
+    								<SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1"/>
+    							</DoubleAnimationUsingKeyFrames>
+    							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+    								<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="2"/>
+    								<SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1"/>
+    							</DoubleAnimationUsingKeyFrames>
+    							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+    								<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="2"/>
+    								<SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1"/>
+    							</DoubleAnimationUsingKeyFrames>
+    						</Storyboard>
+    					</ControlTemplate.Resources>
+    					<Border x:Name="border" Background="#FFAFAFAF" BorderBrush="Black" BorderThickness="2" CornerRadius="4" d:DesignHeight="123" RenderTransformOrigin="-0.032,-0.024">
+    						<Border.RenderTransform>
+    							<TransformGroup>
+    								<ScaleTransform/>
+    								<SkewTransform/>
+    								<RotateTransform/>
+    								<TranslateTransform/>
+    							</TransformGroup>
+    						</Border.RenderTransform>
+    						<ContentPresenter x:Name="contentPresenter" Width="Auto" Height="Auto" RenderTransformOrigin="0.5,0.5" Margin="0">
+    							<ContentPresenter.RenderTransform>
+    								<TransformGroup>
+    									<ScaleTransform/>
+    									<SkewTransform/>
+    									<RotateTransform/>
+    									<TranslateTransform/>
+    								</TransformGroup>
+    							</ContentPresenter.RenderTransform>
+    						</ContentPresenter>
+    					</Border>
+    					<ControlTemplate.Triggers>
+    						<Trigger Property="IsKeyboardFocused" Value="true"/>
+    						<Trigger Property="ToggleButton.IsChecked" Value="true"/>
+    						<Trigger Property="IsEnabled" Value="false">
+    							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+    						</Trigger>
+    					</ControlTemplate.Triggers>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+         
+    </Application.Resources>
+</Application>

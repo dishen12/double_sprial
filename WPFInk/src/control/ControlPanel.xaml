@@ -1,0 +1,173 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:ic="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+	xmlns:local="clr-namespace:WPFInk"
+	x:Class="WPFInk.ControlPanel"
+	x:Name="UserControl" Width="140" Height="622.05">
+	<UserControl.Resources>
+		<Style x:Key="ButtonFocusVisual">
+			<Setter Property="Control.Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Rectangle Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1" Margin="3" SnapsToDevicePixels="true"/>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<LinearGradientBrush x:Key="ButtonNormalBackgroundFill" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+			<GradientStop Color="#FFF0F0EA" Offset="0.9"/>
+		</LinearGradientBrush>
+		<SolidColorBrush x:Key="ButtonBorder" Color="#FF003C74"/>
+		<Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonBorder}"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="Border">
+								<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+									<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Key="BorderOff">
+								<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+									<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid x:Name="grid">
+							<!--<VisualStateManager.CustomVisualStateManager>
+								<ic:ExtendedVisualStateManager/>
+							</VisualStateManager.CustomVisualStateManager>-->
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="Common" ic:ExtendedVisualStateManager.UseFluidLayout="True">
+									<VisualState x:Name="MouseOver">
+										<Storyboard>
+											<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+												<SplineThicknessKeyFrame KeyTime="00:00:00" Value="1,1,-1,-1"/>
+											</ThicknessAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Normal"/>
+									<VisualState x:Name="Pressed">
+										<Storyboard>
+											<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+												<SplineThicknessKeyFrame KeyTime="00:00:00" Value="2,2,-2,-2"/>
+											</ThicknessAnimationUsingKeyFrames>
+											<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)">
+												<SplineColorKeyFrame KeyTime="00:00:00" Value="#FF27272C"/>
+											</ColorAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+								</VisualStateGroup>
+								<VisualStateGroup x:Name="Focus">
+									<VisualState x:Name="Focused">
+										<Storyboard>
+											<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+												<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+											</DoubleAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Unfocused"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Rectangle x:Name="rectangle" Fill="White" Stroke="#FF6F9EB7" RadiusX="3" RadiusY="3" Opacity="0"/>
+							<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Width="140" Margin="0,0,0,0.55">
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition Height="0*"/>
+		</Grid.RowDefinitions>
+		<Rectangle Fill="#FFC9C9C9" Stroke="Blue" Width="140" RadiusX="5" RadiusY="5"/>
+		<Rectangle Margin="0,5,0,0" Fill="Blue" VerticalAlignment="Top" Height="15" Width="140"/>
+		<Rectangle x:Name="HeadArea" Margin="0" Fill="Blue" VerticalAlignment="Top" Height="20" Width="140" RadiusX="5" RadiusY="5" MouseLeftButtonDown="HeadArea_MouseLeftButtonDown" MouseLeftButtonUp="HeadArea_MouseLeftButtonUp" MouseMove="HeadArea_MouseMove"/>
+		<Button Margin="26.667,25.5,0,0" VerticalAlignment="Top" Height="36" HorizontalAlignment="Left" Width="36" x:Name="Open" Style="{DynamicResource ButtonStyle}" Click="Open_Click">
+			<Image Height="30" Width="30" Source="images/openButton.png" ToolTip="Open"/>
+		</Button>
+		<Button Margin="0,26.481,28,0" VerticalAlignment="Top" Height="36" x:Name="Save" HorizontalAlignment="Right" Width="36" Style="{DynamicResource ButtonStyle}" Click="Save_Click">
+			<Image Height="30" Width="30" Source="images/saveButton.png" ToolTip="Save"/>
+		</Button>
+		<Button HorizontalAlignment="Left" Margin="26,102.5,0,0" VerticalAlignment="Top" Width="36" Height="36" x:Name="PointEraserButton" Click="PointEraserButton_Click" Style="{DynamicResource ButtonStyle}">
+			<Image Height="30" Width="30" Source="images/点橡皮-默认状态_r2_c11.png" ToolTip="Erase By Point"/>
+		</Button>
+		<Button Margin="0,102.5,28,0" VerticalAlignment="Top" Height="36" x:Name="RubberButton" HorizontalAlignment="Right" Width="36" Click="RubberButton_Click" Style="{DynamicResource ButtonStyle}">
+			<Image Height="30" Width="30" Source="images/橡皮-默认状态_r2_c7.png" ToolTip="Erase By Stroke"/>
+		</Button>
+		<Button Margin="26,64.5,0,0" VerticalAlignment="Top" Height="36" HorizontalAlignment="Left" Width="36" x:Name="Pencil" Click="Pencil_Click" Style="{DynamicResource ButtonStyle}">
+			<Image Height="30" Width="30" Source="images/画笔-默认状态_r2_c5.png" ToolTip="Pen"/>
+		</Button>
+		<Button Margin="0,64.5,28,0" VerticalAlignment="Top" Height="36" x:Name="Button_Select" HorizontalAlignment="Right" Width="36" Click="Button_Select_Click" Style="{DynamicResource ButtonStyle}">
+			<Image Height="30" Width="30" Source="images/选择-默认状态_r2_c2.png" ToolTip="Select"/>
+		</Button>
+		<Rectangle x:Name="RectangleSlider" Margin="9.5,339.5,10.5,0" Fill="#FFFFFFFF" Stroke="#FF000000" VerticalAlignment="Top" Height="120" Width="120"/>
+		<Slider Margin="24.5,360.5,0,0" Orientation="Vertical" Maximum="50" SmallChange="1" ValueChanged="Slider_ValueChanged" x:Name="WidthSlider" HorizontalAlignment="Left" Width="22" VerticalAlignment="Top" Height="94"/>
+		<Label Margin="8.5,339.5,0,0" Content="PenWidth" x:Name="PenWidth" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="10.667"/>
+		<TextBlock Margin="47.5,364,0,0" Text="1" TextWrapping="Wrap" x:Name="WidthInt" Foreground="#FF000000" HorizontalAlignment="Left" Width="21" VerticalAlignment="Top" Height="20"/>
+		<Button Margin="26,139.978,0,0" x:Name="insertText" Click="insertText_Click" Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left" Width="36" d:LayoutOverrides="Width" Height="36" VerticalAlignment="Top" >
+			<Image Height="30" Width="30" Source="images/文字-默认状态_r9_c2.png" RenderTransformOrigin="0.5,0.517" ToolTip="Text"/>
+		</Button>
+		<Button Margin="77,139.978,0,0" x:Name="insertImage" Click="insertImage_Click" Style="{DynamicResource ButtonStyle}" Height="36" VerticalAlignment="Top" HorizontalAlignment="Left" Width="36" >
+			<Image Height="30" Width="30" Source="images/图片-默认状态_r8_c5.png" ToolTip="Image"/>
+		</Button>
+		<Rectangle Margin="7.5,329.924,0,0" Fill="#FF595959" Stroke="#FF000000" HorizontalAlignment="Left" VerticalAlignment="Top" Height="2" Width="124"/>
+		<Button Margin="26,215.424,0,0" Command="{Binding CopyImageCommand}"  x:Name="undoButton" Click="undoButton_Click" Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left" Width="36" d:LayoutOverrides="Width" VerticalAlignment="Top" Height="36" >
+			<Image Height="30" Width="30" Source="images/撤销-默认状态_r13_c2.png" ToolTip="Undo"/>
+		</Button>
+		<Button Margin="0,214.424,27,0" HorizontalAlignment="Right" x:Name="redoButton" Width="36" Click="redoButton_Click" Style="{DynamicResource ButtonStyle}" VerticalAlignment="Top" Height="36">
+			<Image Height="30" Width="30" Source="images/重做-默认状态_r12_c5.png" ToolTip="Redo"/>
+		</Button>
+		<Button Margin="26,176.424,0,0" x:Name="ClearAll" Click="ClearAll_Click" Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left" Width="36" d:LayoutOverrides="Width" VerticalAlignment="Top" Height="36" >
+			<Image Height="30" Width="30" Source="images/clearAllButton.png" ToolTip="Clear All"/>
+		</Button>
+<!--<Button HorizontalAlignment="Left" Margin="17,-9.5,0,-19.5" x:Name="openDat" Width="35" Click="openDat_Click" Content="openDat" Grid.Row="1"/>-->
+		<local:ColorPicker x:Name="ColorPicker" Margin="10.25,467,0,0" ColorChanged="ColorPicker_ColorChanged" HorizontalAlignment="Left" VerticalAlignment="Top" d:LayoutOverrides="Height" RenderTransformOrigin="0.827,0.837"/>
+<!--<Button Name="ClearAll"  Margin="32,0,31,209.089" VerticalAlignment="Bottom" Content="ClearAll" Width="77" Click="ClearAll_Click" ToolTip="ClearAll" Style="{DynamicResource ButtonStyle2}"/>-->
+		<Button Margin="0,175.924,26.5,0" HorizontalAlignment="Right" x:Name="Gesture" Width="36" Click="Gesture_Click" Style="{DynamicResource ButtonStyle}" VerticalAlignment="Top" Height="36">
+			<Image Height="30" Width="30" Source="images/gestureButton.png" ToolTip="Redo"/>
+		</Button>
+		<Label Margin="60.5,339.5,0,0" Content="PenOpacity" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="10.667"/>
+		<TextBlock x:Name="penOpacityTextBlock" Margin="70.5,363,0,0" Text="1.0" TextWrapping="Wrap" Foreground="#FF000000" HorizontalAlignment="Left" Width="20" VerticalAlignment="Top" Height="16"/>
+		<Slider Margin="90.5,360.5,0,0" Orientation="Vertical" Maximum="1" x:Name="OpacitySlider" HorizontalAlignment="Left" Width="23" Value="1" ToolTip="Opacity" Height="94" VerticalAlignment="Top"/>
+		<Button x:Name="MinButton" Margin="115,0,5,0" VerticalAlignment="Top" Width="20" Height="20" Style="{DynamicResource ButtonStyle2}" Click="MinButton_Click">
+			<Image Source="images/MinButton.png" Width="16" Height="16"/>
+		</Button>
+		<Button x:Name="MaxButton" Margin="115,0,5,0" VerticalAlignment="Top" Width="20" Height="20" Style="{DynamicResource ButtonStyle2}" Visibility="Collapsed" Click="MaxButton_Click">
+			<Image Source="images/MaxButton.png" Width="16" Height="16"/>
+		</Button>
+		<local:FontChooser x:Name="_fontChooser" Margin="9,340,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<Button x:Name="MoveButton" Margin="28.625,253.424,75.375,0" VerticalAlignment="Top" Click="MoveButton_Click" Style="{DynamicResource ButtonStyle}" Width="36" Height="36" d:LayoutOverrides="VerticalAlignment">
+			<Image HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Source="images/移动-当前状态_r13_c20.png"/>
+		</Button>
+		<Button Margin="0,252.424,27,0" HorizontalAlignment="Right" x:Name="StrokeToImageButton" Width="36" Style="{DynamicResource ButtonStyle}" VerticalAlignment="Top" Height="36" Click="StrokeToImageButton_Click">
+			<Image Height="30" Width="30" Source="images/strokeToImage.png" ToolTip="StrokeToImage"/>
+		</Button>
+		<Button x:Name="DrawGraphicButton" Margin="28.625,288.424,75.375,0" VerticalAlignment="Top" Style="{DynamicResource ButtonStyle}" Width="36" Height="36" Click="DrawGraphicButton_Click">
+			<Image HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Source="images/graphicButton.png" ToolTip="DrawGraphic"/>
+		</Button>
+		<Button Margin="0,290.424,26.5,0" x:Name="StrokeInGraphicButton" Width="36" Style="{DynamicResource ButtonStyle}" Click="StrokeInGraphicButton_Click" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width" Height="36">
+			<Image Height="30" Width="30" Source="images/strokeInGraphicButton.png" ToolTip="StrokeInGraphic"/>
+		</Button>
+		<Button x:Name="hidden"  Margin="93,0,27,0" VerticalAlignment="Top" Width="20" Height="20" Style="{DynamicResource ButtonStyle2}"  Click="Hidden_Click" Foreground="Black">
+			<Image Source="images/CloseButton.png" Width="16" Height="16"/>
+		</Button>
+		</Grid>
+</UserControl>

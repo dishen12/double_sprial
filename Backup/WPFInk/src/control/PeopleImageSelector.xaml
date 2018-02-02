@@ -1,0 +1,47 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="WPFInk.PeopleImageSelector"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480">
+
+	<Grid x:Name="LayoutRoot" Width="300" Margin="0,0,0,-21" Height="591">
+		<Rectangle Fill="White" Stroke="Black" Margin="0,0,0,8"/>
+		<Rectangle Stroke="Black" VerticalAlignment="Top" Width="300" Height="190">
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FFFAFAFA" Offset="0"/>
+					<GradientStop Color="#FF2554E0" Offset="1"/>
+				</LinearGradientBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+		<Rectangle Stroke="Black" Margin="0,195,0,201" Width="300" Height="190">
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FFFAFAFA" Offset="0"/>
+					<GradientStop Color="#FF181A1E" Offset="1"/>
+				</LinearGradientBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+		<Rectangle Stroke="Black" Margin="0,0,0,5" VerticalAlignment="Bottom" Width="300" Height="190">
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FFFAFAFA" Offset="0"/>
+					<GradientStop Color="#FF181A1E" Offset="1"/>
+				</LinearGradientBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+		<Button x:Name="Nest1Button" Margin="10.5,0" VerticalAlignment="Top" Height="190" d:LayoutOverrides="VerticalAlignment" Width="279" Click="Nest1Button_Click">
+			<Image Width="202.05" Height="189.779" Source="images/run.JPG"/>
+		</Button>
+		<Button x:Name="Nest2Button" Margin="10.5,197.5,10.5,203.5" Width="279" Height="190">
+			<Image Width="178" Height="178" Source="images/people2.bmp"/>
+		</Button>
+		<Button x:Name="Nest3Button" Margin="10.5,0,10.5,5" VerticalAlignment="Bottom" Height="190" Width="279">
+			<Image Width="179" Height="179" Source="images/people3.bmp"/>
+		</Button>
+	</Grid>
+</UserControl>

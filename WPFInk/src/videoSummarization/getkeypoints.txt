@@ -1,0 +1,122 @@
+private void getKeyPoints(int intervalLength)
+        {
+            keyPointIndexes.Clear();
+            double distance = 0;
+            showCount = keyFrameCount;
+            if (!isFocus)
+            {
+                keyPointIndexes.Add(0);
+                //keyPointCenterFocusIndexes.Add(0);
+                //keyPointMarginFocusIndexes.Add(0);
+                //InkTool.drawPoint(points[0].X, points[0].Y, 10, Colors.Yellow, InkCanvas);
+                keyPointIndexes.Add(270);
+                //keyPointCenterFocusIndexes.Add(270);
+                //keyPointMarginFocusIndexes.Add(270);
+                //InkTool.drawPoint(points[270].X, points[270].Y, 10, Colors.Yellow, InkCanvas);
+                keyPointIndexes.Add(360);
+                //keyPointCenterFocusIndexes.Add(360);
+                //keyPointMarginFocusIndexes.Add(360);
+                //InkTool.drawPoint(points[360].X, points[360].Y, 10, Colors.Yellow, InkCanvas);
+                int i = 360;
+                while (i < pointsCount - 300)
+                {
+                    keyPointIndexes.Add(endIndexes[i]);
+                    keyPointMarginFocusIndexes.Add(endIndexes[i]);
+                    InkTool.drawPoint(points[endIndexes[i]].X, points[endIndexes[i]].Y, 10, Colors.Yellow, InkCanvas);
+                    i=endIndexes[i];
+                }
+            }
+            else
+            {
+                keyPointIndexes.Add(0);
+                //中心聚集
+                int i = 0;
+                int half;
+                for (i=270; i < points.Count - 1; i++)
+                {
+                    distance += MathTool.getInstance().distanceP2P(points[i + 1], points[i]);
+                    half=(int)(showCount *0.05);
+                    if (keyPointCenterFocusIndexes.Count <=half )
+                    {
+                        if (distance >= myDoubleSpiralWidth/20)
+                        {
+                            if (!isZoomOut)
+                            {
+                                keyPointIndexes.Add(i + 1);
+                            }
+                            keyPointCenterFocusIndexes.Add(i + 1);
+                            //InkTool.drawPoint(points[i + 1].X, points[i + 1].Y, 5, Colors.Blue, InkCanvas);
+                            distance = 0;
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                //int i = 360;
+                while (i<points.Count-360)
+                {
+                    if (!isZoomOut)
+                    {
+                        keyPointIndexes.Add(endIndexes[i]);
+                    }
+                    keyPointCenterFocusIndexes.Add(endIndexes[i]);
+                    //keyPointIndexes.Add(endIndexes[i]);
+                    //keyPointMarginFocusIndexes.Add(endIndexes[i]);
+                    //InkTool.drawPoint(points[endIndexes[i]].X, points[endIndexes[i]].Y, 10, Colors.Yellow, InkCanvas);
+                    i = endIndexes[i];
+                }
+                for(i=points.Count-360;i < points.Count - 1; i++)
+                {
+                    distance += MathTool.getInstance().distanceP2P(points[i + 1], points[i]);
+                    if (distance >= myDoubleSpiralWidth/200)
+                    {
+                        keyPointIndexes.Add(i + 1);
+                        distance = 0;
+                    }
+                }
+
+                for (i = 1; i < 2000; i++)
+                {
+                    keyPointIndexes.Add(points.Count-500);
+                      
+                }
+
+                ////边缘聚集
+                //if (isZoomOut)
+                //{
+                //    keyPointIndexes.Add(270);
+                //    keyPointIndexes.Add(360);
+                //}
+                //i = 360;
+                //half = (int)(showCount *0.5);
+                //while (keyPointMarginFocusIndexes.Count <= half&&i<2310)
+                //{
+                //    if (isZoomOut)
+                //    {
+                //        keyPointIndexes.Add(endIndexes[i]);
+                //    }
+                //    keyPointMarginFocusIndexes.Add(endIndexes[i]);
+                //    i = endIndexes[i];
+                //}
+                //distance = 0;
+                //for (; i < points.Count - 1; i++)
+                //{
+                //    distance += MathTool.getInstance().distanceP2P(points[i + 1], points[i]);
+                //    if (distance >= 2.9)
+                //    {
+                //        if (isZoomOut)
+                //        {
+                //            keyPointIndexes.Add(i + 1);
+                //        }
+                //        keyPointMarginFocusIndexes.Add(i + 1);
+                //        //InkTool.drawPoint(points[i + 1].X, points[i + 1].Y, 5, Colors.Blue, InkCanvas);
+                //        distance = 0;
+                //        i++;
+                //    }
+                //}                
+
+            }
+        }

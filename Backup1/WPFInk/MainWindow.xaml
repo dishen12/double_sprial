@@ -1,0 +1,42 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:WPFInk="clr-namespace:WPFInk" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    x:Class="WPFInk.MainWindow"
+    Title="SketchEditor" Background="#FFE4E8E7" Foreground="#FFFFFFFF" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" WindowState="Maximized" xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit">
+	<Window.Resources>
+        <Storyboard x:Key="StrokePlayBackStoryBoard" x:Name="StrokePlayBackStoryBoard"/>
+            
+    </Window.Resources>
+    <Grid Margin="0,0,0,87">
+		<Grid.ColumnDefinitions>    		
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.02*"/>
+			<RowDefinition Height="0.98*"/>
+			<RowDefinition Height="0*"/>
+		</Grid.RowDefinitions>
+		<Menu Grid.Column="0" Margin="0,0,0,-8.22" x:Name="Menu" Background="Black" d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2">
+			<MenuItem Margin="0" Header="Pre-processing" Foreground="White">
+				<MenuItem Header="ShotCut" Click="ShotCut_Click" Foreground="Black"/>
+			</MenuItem>
+            <MenuItem Margin="0" Header="Tool" Foreground="White">
+                <MenuItem Header="Option" Click="Option_Click" Foreground="Black"/>
+                <!--<MenuItem Header="Sketch/Graphic" Click="SketchGraphicSwitch_Click" Foreground="Black"/>-->
+            </MenuItem>
+
+        </Menu>
+	  	
+		<WPFInk:StrokePlayer x:Name="timeBar" Grid.Row="2" Margin="1.333,0,0.667,-86.672" Grid.Column="0" VerticalAlignment="Bottom" d:LayoutOverrides="GridBox"/>
+		<WPFInk:InkFrame HorizontalAlignment="Stretch" x:Name="_inkFrame" d:LayoutOverrides="VerticalAlignment" RenderTransformOrigin="0.5,0.5" Margin="0,9.3,0,-52.672" Grid.RowSpan="1" Grid.Row="1" Grid.ColumnSpan="1"/>
+		<Button x:Name="InkCanvasZoomButton" HorizontalAlignment="Right" VerticalAlignment="Top" Width="22"  Margin="0,15,4,0" Click="InkCanvasZoomButton_Click" BorderThickness="0,2,2,0" Grid.Row="1" Style="{DynamicResource ButtonStyle2}" Height="17">
+			<Image Source="Screen.PNG"/>
+		</Button>
+		<Button x:Name="InkCanvasZoomBackButton" HorizontalAlignment="Right" VerticalAlignment="Top" Width="22" Margin="0,15,4,0" BorderThickness="0,2,2,0" Click="InkCanvasZoomBackButton_Click" Visibility="Collapsed" Style="{DynamicResource ButtonStyle2}" Grid.Row="1" Height="17">
+			<Image Source="Screen.PNG"/>
+		</Button>	  
+		<WPFInk:ControlPanel Margin="5,26.833,0,-100" x:Name="_controlPanel" HorizontalAlignment="Left" Width="143.333" Grid.Row="1" VerticalAlignment="Top" />
+		
+	</Grid>
+</Window>

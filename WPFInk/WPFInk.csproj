@@ -1,0 +1,961 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ABD241DD-3F33-425F-9E8F-8F4C379C3B16}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WPFInk</RootNamespace>
+    <AssemblyName>WPFInk</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ApplicationIcon>resource\ICO-1641.ICO</ApplicationIcon>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ExpressionBlendVersion>3.0.1927.0</ExpressionBlendVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>http://localhost/WPFInk/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IACore, Version=1.7.6223.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Reference Assemblies\Microsoft\Tablet PC\v1.7\IACore.dll</HintPath>
+    </Reference>
+    <Reference Include="IALoader, Version=1.7.6223.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin\IALoader.dll</HintPath>
+    </Reference>
+    <Reference Include="IAWinFX, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Reference Assemblies\Microsoft\Tablet PC\v1.7\IAWinFX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>C:\dll\microsoft.expression.interactions\x32\1.0.1327.0\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactivity">
+      <HintPath>C:\dll\microsoft.expression.interactivity\x32\3.0.1500.0\Microsoft.Expression.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Prototyping.SketchControls">
+      <HintPath>C:\dll\microsoft.expression.prototyping.sketchcontrols\x32\1.0.1343.0\Microsoft.Expression.Prototyping.SketchControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Ink, Version=6.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\dll\microsoft.ink\x32\6.0.6001.18000\Microsoft.Ink.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TeamSystem.Data">
+      <HintPath>C:\dll\microsoft.visualstudio.teamsystem.data\x32\9.0.21022.8\Microsoft.VisualStudio.TeamSystem.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TeamSystem.Data.Unittesting">
+      <HintPath>C:\dll\microsoft.visualstudio.teamsystem.data.unittesting\x32\9.0.21022.8\Microsoft.VisualStudio.TeamSystem.Data.Unittesting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <HintPath>C:\dll\system.windows.controls.datavisualization.toolkit\x32\3.5.50211.1\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>C:\dll\system.windows.interactivity\x32\1.0.1327.0\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Presentation">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <HintPath>C:\dll\system.xaml\x32\4.0.30319.1\System.xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Windows7.Multitouch.dll">
+      <HintPath>bin\Release\Windows7.Multitouch.dll</HintPath>
+    </Reference>
+    <Reference Include="Windows7.Multitouch.WPF.dll">
+      <HintPath>bin\Release\Windows7.Multitouch.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Page Include="src\control\ControlPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="src\control\ControlPanel.xaml.cs">
+      <DependentUpon>ControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Reference Include="WPFToolkit">
+      <HintPath>C:\dll\wpftoolkit\x32\3.5.40320.1\WPFToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="DoubleSpiralSummarizationControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PlayerPolyTimeline.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\InkControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\KeyFrameAnnotation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\MyTimeLine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\Question.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\Spiral\SolidArrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\TimeBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\UserStudySettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\VideoAnnotation\ThumbVideoPlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\ShotCut\FormMotionCue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\ShotCut\ShotCut.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\NodeEditAndPlay\VideoAnnoOld\FormAnnotationOld.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\VideoAnnotation\VideoAnnotation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\ColorPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\FontChooser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\MyprogressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\PentagramExtractive.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\PeopleImageSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\ImageSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\InkFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\NodeEditorAndPlayShow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\PanelVideoShow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\PieMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\ScrollInkFrame.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\StrokePlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\VideoAnnotation\ThumbInk.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\VideoAnnotation\TitleInk.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\UpdateRecognitionRusult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\UserControlHead.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\VideoAnnotation\VideoList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\control\VideoAnnotation\VideoThumbControlPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VideoOperation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VideoSummarizationControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DoubleSpiralSummarizationControl.xaml.cs">
+      <DependentUpon>DoubleSpiralSummarizationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerPolyTimeline.xaml.cs">
+      <DependentUpon>PlayerPolyTimeline.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\InkControl.xaml.cs">
+      <DependentUpon>InkControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\KeyFrameAnnotation.xaml.cs">
+      <DependentUpon>KeyFrameAnnotation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\MyTimeLine.xaml.cs">
+      <DependentUpon>MyTimeLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\Question.xaml.cs">
+      <DependentUpon>Question.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\Spiral\SolidArrow.xaml.cs">
+      <DependentUpon>SolidArrow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\TimeBar.xaml.cs">
+      <DependentUpon>TimeBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\UserStudySettings.xaml.cs">
+      <DependentUpon>UserStudySettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\VideoAnnotation\ThumbVideoPlayer.xaml.cs">
+      <DependentUpon>ThumbVideoPlayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\MouseGesture\Multitouch\PictureTracker.cs" />
+    <Compile Include="src\MouseGesture\Multitouch\PictureTrackerManager.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\BmpHelper.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\CJPoint.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\CJStroke.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\CJVideoStaticStroke.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\CmdUtility.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\ColorHelper.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\ConnectLine.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\FileHelper.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\Frame.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\GeometryHelper.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\Line.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\Offset.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\SketchInNodeVideo.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\VideoNode.cs" />
+    <Compile Include="src\NodeEditAndPlay\AssistDocuments\VideoNodeHelper.cs" />
+    <Compile Include="src\NodeEditAndPlay\AVI\AVIReader.cs" />
+    <Compile Include="src\NodeEditAndPlay\AVI\AVIWriter.cs" />
+    <Compile Include="src\NodeEditAndPlay\AVI\PanelVideo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\NodeEditAndPlay\AVI\PanelVideo.Designer.cs">
+      <DependentUpon>PanelVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\NodeEditAndPlay\AVI\Win32.cs" />
+    <Compile Include="src\NodeEditAndPlay\PointView\Force.cs" />
+    <Compile Include="src\NodeEditAndPlay\PointView\HyperNode.cs" />
+    <Compile Include="src\NodeEditAndPlay\PointView\InkMathTool.cs" />
+    <Compile Include="src\NodeEditAndPlay\PointView\Link.cs" />
+    <Compile Include="src\NodeEditAndPlay\PointView\Node.cs" />
+    <Compile Include="src\NodeEditAndPlay\PointView\PointView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\NodeEditAndPlay\PointView\PointView.Designer.cs">
+      <DependentUpon>PointView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\ShotCut\ColorHelper.cs" />
+    <Compile Include="src\ShotCut\FormMotionCue.xaml.cs">
+      <DependentUpon>FormMotionCue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\ShotCut\Histogram.cs" />
+    <Compile Include="src\ShotCut\HSV.cs" />
+    <Compile Include="src\ShotCut\MathTool.cs" />
+    <Compile Include="src\ShotCut\ShotCut.xaml.cs">
+      <DependentUpon>ShotCut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\NodeEditAndPlay\VideoAnnoOld\Annotation.cs" />
+    <Compile Include="src\NodeEditAndPlay\VideoAnnoOld\FormAnnotationOld.xaml.cs">
+      <DependentUpon>FormAnnotationOld.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\NodeEditAndPlay\VideoAnnoOld\PanelMainFrame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\NodeEditAndPlay\VideoAnnoOld\PanelMainFrame.Designer.cs">
+      <DependentUpon>PanelMainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\NodeEditAndPlay\VideoAnnoOld\PanelNormalFrame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\NodeEditAndPlay\VideoAnnoOld\PanelNormalFrame.Designer.cs">
+      <DependentUpon>PanelNormalFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\VideoAnnotation\VideoAnnotation.xaml.cs">
+      <DependentUpon>VideoAnnotation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\NodeEditAndPlay\WZL\ConstraintElement.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\G_Circle.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\G_Geometry.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\G_Line.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\G_L_C_Constraints.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\G_L_L_Constraints.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\MyStroke.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\Page.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\Recognizer.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\SemanticGroup.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\SKContextDG.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\Sketch.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\StrokeGroup.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\TidyUp.cs" />
+    <Compile Include="src\NodeEditAndPlay\WZL\ToolForStroke.cs" />
+    <Compile Include="src\ChineseWordSegmentation\ChineseParse.cs" />
+    <Compile Include="src\ChineseWordSegmentation\ChineseWordsHashCountSet.cs" />
+    <Compile Include="src\cmd\AddArrowCommand.cs" />
+    <Compile Include="src\cmd\AddButtonCommand.cs" />
+    <Compile Include="src\cmd\AddImageCommand.cs" />
+    <Compile Include="src\cmd\AddStrokeCommand.cs" />
+    <Compile Include="src\cmd\AddTextCommand.cs" />
+    <Compile Include="src\cmd\ButtonMoveCommand.cs" />
+    <Compile Include="src\cmd\Command.cs" />
+    <Compile Include="src\cmd\ButtonRotateCommand.cs" />
+    <Compile Include="src\cmd\ButtonZoomCommand.cs" />
+    <Compile Include="src\cmd\AddMyGraphicCommand.cs" />
+    <Compile Include="src\cmd\MyGraphicsMoveCommand.cs" />
+    <Compile Include="src\cmd\MyGraphicMoveCommand.cs" />
+    <Compile Include="src\cmd\DeleteMyGraphicCommand.cs" />
+    <Compile Include="src\cmd\TextMoveCommand.cs" />
+    <Compile Include="src\cmd\DeleteTextCommand.cs" />
+    <Compile Include="src\cmd\DeleteArrowCommand.cs" />
+    <Compile Include="src\cmd\DeleteButtonCommand.cs" />
+    <Compile Include="src\cmd\DeleteImageCommand.cs" />
+    <Compile Include="src\cmd\DeleteOldAddNewArrow.cs" />
+    <Compile Include="src\cmd\HiddenMyButtonCommand.cs" />
+    <Compile Include="src\cmd\ImageRotateCommand2.cs" />
+    <Compile Include="src\cmd\ImageZoomCommand.cs" />
+    <Compile Include="src\cmd\InkCanvasZoomCommand2.cs" />
+    <Compile Include="src\cmd\ImageMoveCommand.cs" />
+    <Compile Include="src\cmd\DeleteStrokeCommand.cs" />
+    <Compile Include="src\cmd\ImageRotateCommand.cs" />
+    <Compile Include="src\cmd\ImageZoomCommand2.cs" />
+    <Compile Include="src\cmd\MoveCommand.cs" />
+    <Compile Include="src\cmd\RotateCommand.cs" />
+    <Compile Include="src\cmd\VisibleMyButtonCommand.cs" />
+    <Compile Include="src\cmd\ZoomCommand.cs" />
+    <Compile Include="src\cmd\MoveMyStrokesCommand.cs" />
+    <Compile Include="src\cmd\MoveMyImagesCommand.cs" />
+    <Compile Include="src\cmd\MoveTextsCommand.cs" />
+    <Compile Include="src\control\MyprogressBar.xaml.cs">
+      <DependentUpon>MyprogressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\PentagramExtractive.xaml.cs">
+      <DependentUpon>PentagramExtractive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\ScrollInkFrame.xaml.cs">
+      <DependentUpon>ScrollInkFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\UserControlHead.xaml.cs">
+      <DependentUpon>UserControlHead.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Global\GlobalValues.cs" />
+    <Compile Include="src\control\ColorPicker.xaml.cs">
+      <DependentUpon>ColorPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\FontChooser.xaml.cs">
+      <DependentUpon>FontChooser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\PeopleImageSelector.xaml.cs">
+      <DependentUpon>PeopleImageSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\ImageSelector.xaml.cs">
+      <DependentUpon>ImageSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\InkFrame.xaml.cs">
+      <DependentUpon>InkFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\NodeEditorAndPlayShow.xaml.cs">
+      <DependentUpon>NodeEditorAndPlayShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\PanelVideoShow.xaml.cs">
+      <DependentUpon>PanelVideoShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\PieMenu.xaml.cs">
+      <DependentUpon>PieMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\StrokePlayer.xaml.cs">
+      <DependentUpon>StrokePlayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\VideoAnnotation\ThumbInk.xaml.cs">
+      <DependentUpon>ThumbInk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\VideoAnnotation\TitleInk.xaml.cs">
+      <DependentUpon>TitleInk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\UpdateRecognitionRusult.xaml.cs">
+      <DependentUpon>UpdateRecognitionRusult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\VideoAnnotation\VideoList.xaml.cs">
+      <DependentUpon>VideoList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\control\VideoAnnotation\VideoThumbControlPanel.xaml.cs">
+      <DependentUpon>VideoThumbControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\font\ColorComboBoxItem.cs" />
+    <Compile Include="src\font\FontFamilyListItem.cs" />
+    <Compile Include="src\font\FontSizeListItem.cs" />
+    <Compile Include="src\font\KnownColor.cs" />
+    <Compile Include="src\font\NameDictionaryHelper.cs" />
+    <Compile Include="src\graphic\MultiCustomGesture.cs" />
+    <Compile Include="src\graphic\GraphicLinkNode.cs" />
+    <Compile Include="src\state\InkState_DrawStrokeInGraphic.cs" />
+    <Compile Include="src\state\videoDoubleSpiralSummarization\InkState_AddKeyFrameAnnotationDouble.cs" />
+    <Compile Include="src\state\videoDoubleSpiralSummarization\InkState_DoubleSpiralSummarization.cs" />
+    <Compile Include="src\state\videoDoubleSpiralSummarization\InkState_HyperLinkDoubleSummarization.cs" />
+    <Compile Include="src\state\videoDoubleSpiralSummarization\InkState_MergeDoubleSummarization.cs" />
+    <Compile Include="src\state\videoSummarization\InkState_HyperLinkSummarization.cs" />
+    <Compile Include="src\state\videoSummarization\InkState_Summarization.cs" />
+    <Compile Include="src\state\videoSummarization\InkState_MergeSummarization.cs" />
+    <Compile Include="src\state\videoSummarization\InkState_AddKeyFrameAnnotation.cs" />
+    <Compile Include="src\state\videoSummarization\InkState_TapestrySummarization2.cs" />
+    <Compile Include="src\state\videoSummarization\InkState_TapestrySummarization.cs" />
+    <Compile Include="src\tool\GraphicMathTool.cs" />
+    <Compile Include="src\graphic\GraphicRule.cs" />
+    <Compile Include="src\graphic\MyGraphic.cs" />
+    <Compile Include="src\ink\ImageConnector.cs" />
+    <Compile Include="src\ink\InkCollector.cs" />
+    <Compile Include="src\ink\InkConstants.cs" />
+    <Compile Include="src\ink\MyButton.cs" />
+    <Compile Include="src\ink\MyImage.cs" />
+    <Compile Include="src\ink\MyStroke.cs" />
+    <Compile Include="src\ink\Sketch.cs" />
+    <Compile Include="src\ink\MyRichTextBox.cs" />
+    <Compile Include="src\ink\StrokeGroup.cs" />
+    <Compile Include="src\MouseGesture\GenericRect.cs" />
+    <Compile Include="src\MouseGesture\GestureData.cs" />
+    <Compile Include="src\MouseGesture\GestureInfos.cs" />
+    <Compile Include="src\MouseGesture\GestureProperties.cs" />
+    <Compile Include="src\MouseGesture\MatchHandler.cs" />
+    <Compile Include="src\MouseGesture\MouseGesture.cs" />
+    <Compile Include="src\MouseGesture\MouseGestureEventArgs.cs" />
+    <Compile Include="src\PersistenceManager\PersistenceManager.cs" />
+    <Compile Include="src\state\InkState_DrawGraphic.cs" />
+    <Compile Include="src\state\InkState_None.cs" />
+    <Compile Include="src\state\InkState_AutoMove.cs" />
+    <Compile Include="src\state\InkState_VideoPlay.cs" />
+    <Compile Include="src\state\InkState_DrawnArrow.cs" />
+    <Compile Include="src\state\InkState_Gesture.cs" />
+    <Compile Include="src\state\InkState.cs" />
+    <Compile Include="src\state\InkState_Erase.cs" />
+    <Compile Include="src\state\InkState_ImageZoom.cs" />
+    <Compile Include="src\state\InkState_Ink.cs" />
+    <Compile Include="src\state\InkState_Inkplay.cs" />
+    <Compile Include="src\state\InkState_InsertText.cs" />
+    <Compile Include="src\state\InkState_Move.cs" />
+    <Compile Include="src\state\InkState_PointErase.cs" />
+    <Compile Include="src\state\InkState_Rotate.cs" />
+    <Compile Include="src\state\InkState_Select.cs" />
+    <Compile Include="src\state\InkState_Zoom.cs" />
+    <Compile Include="src\tool\Connector.cs" />
+    <Compile Include="src\tool\ConvertClass.cs" />
+    <Compile Include="src\tool\ImageTool.cs" />
+    <Compile Include="src\tool\InkTool.cs" />
+    <Compile Include="src\tool\MaskedTextBox.cs" />
+    <Compile Include="src\tool\MathTool.cs" />
+    <Compile Include="src\tool\MyInkAnalyzer.cs" />
+    <Compile Include="src\tool\MyStoryboard.cs" />
+    <Compile Include="src\tool\MyTimer.cs" />
+    <Compile Include="src\UserControlResize\UserControlResizer.cs" />
+    <Compile Include="src\UserControlResize\WindowResizer.cs" />
+    <Compile Include="src\videoSummarization\CustomSummarization.cs" />
+    <Compile Include="src\videoSummarization\DatabaseSetup.cs" />
+    <Compile Include="src\videoSummarization\GernarateKeyFrame.cs" />
+    <Compile Include="src\videoSummarization\KeyFrame.cs" />
+    <Compile Include="src\videoSummarization\MySpiral.cs" />
+    <Compile Include="src\videoSummarization\MyStrokeData.cs" />
+    <Compile Include="src\videoSummarization\other.cs" />
+    <Compile Include="src\videoSummarization\SpiralSummarization.cs" />
+    <Compile Include="src\videoSummarization\TapestrySummarization.cs">
+    </Compile>
+    <Compile Include="src\videoSummarization\template\LoadTemplates.cs" />
+    <Compile Include="src\videoSummarization\template\ShareMemory.cs" />
+    <Compile Include="src\videoSummarization\ThumbPlayer.cs" />
+    <Compile Include="src\videoSummarization\TileSummarization.cs" />
+    <Compile Include="src\videoSummarization\KeyFramesAnnotation.cs" />
+    <Compile Include="src\videoSummarization\VideoSummarization.cs" />
+    <Compile Include="src\videoAnnotation\ComparerVideoPath.cs" />
+    <Compile Include="src\videoAnnotation\ComparerStrokeCount.cs" />
+    <Compile Include="src\videoAnnotation\MyArrow.cs" />
+    <Compile Include="src\videoAnnotation\ComparerTimeStart.cs" />
+    <Compile Include="src\videoAnnotation\Connector.cs" />
+    <Compile Include="src\videoAnnotation\MySmallRectangle.cs" />
+    <Compile Include="src\videoAnnotation\MyVideo.cs" />
+    <Compile Include="src\videoAnnotation\PrgConverter.cs" />
+    <Compile Include="src\videoAnnotation\ThumbConnector.cs" />
+    <Compile Include="src\videoAnnotation\VideoCollector.cs" />
+    <Compile Include="src\videoSummarization\VideoSummarizationTool.cs" />
+    <Compile Include="src\videoSummarization\MyDoubleSpiral.cs" />
+    <Compile Include="src\videoSummarization\DoubleSpiralSummarization.cs" />
+    <Compile Include="src\videoSummarization\DMoveKeyFrame.cs" />
+    <Compile Include="VideoOperation.xaml.cs">
+      <DependentUpon>VideoOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VideoSummarizationControl.xaml.cs">
+      <DependentUpon>VideoSummarizationControl.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="src\NodeEditAndPlay\AVI\PanelVideo.resx">
+      <DependentUpon>PanelVideo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\NodeEditAndPlay\PointView\PointView.resx">
+      <DependentUpon>PointView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="src\videoSummarization\app.config" />
+    <Compile Include="src\videoSummarization\MoveKeyFrame.cs" />
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resource\ICO-1641.ICO" />
+    <Resource Include="src\control\images\Play.PNG" />
+    <Resource Include="src\control\images\Screen.PNG" />
+    <Resource Include="src\control\images\Stop.PNG" />
+    <Resource Include="src\control\images\保存涂鸦_r3_c18.png" />
+    <Resource Include="src\control\images\变焦-默认状态_r17_c22.png" />
+    <Resource Include="src\control\images\图片-默认状态_r8_c5.png" />
+    <Resource Include="src\control\images\撤销-默认状态_r13_c2.png" />
+    <Resource Include="src\control\images\文字-默认状态_r9_c2.png" />
+    <Resource Include="src\control\images\旋转-当前状态_r7_c20.png" />
+    <Resource Include="src\control\images\旋转-滑动状态_r7_c22.png" />
+    <Resource Include="src\control\images\橡皮-默认状态_r2_c7.png" />
+    <Resource Include="src\control\images\点橡皮-默认状态_r2_c11.png" />
+    <Resource Include="src\control\images\画笔-默认状态_r2_c5.png" />
+    <Resource Include="src\control\images\移动-当前状态_r13_c20.png" />
+    <Resource Include="src\control\images\选择-默认状态_r2_c2.png" />
+    <Resource Include="src\control\images\重做-默认状态_r12_c5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\cursor\StrokeEraser.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\cursor\PointEraser.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\cursor\Select.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\cursor\Text.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\cursor\Zoom.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <BlendEmbeddedFont Include="Fonts\simsun.ttc">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+    </BlendEmbeddedFont>
+    <Resource Include="src\control\images\QQ截图未命名.png" />
+    <Resource Include="src\NodeEditAndPlay\VideoAnnoOld\Pause.PNG" />
+    <Resource Include="src\NodeEditAndPlay\VideoAnnoOld\Play.PNG" />
+    <Resource Include="src\NodeEditAndPlay\VideoAnnoOld\Screen.PNG" />
+    <Resource Include="src\NodeEditAndPlay\VideoAnnoOld\Stop.PNG" />
+    <Resource Include="src\control\images\arrowButton.png" />
+    <Resource Include="src\control\images\clearAllButton.png" />
+    <Resource Include="src\control\images\CloseButton.png" />
+    <Resource Include="src\control\images\gestureButton.png" />
+    <Resource Include="src\control\images\graphicButton.png" />
+    <Resource Include="src\control\images\Line.png" />
+    <Resource Include="src\control\images\MaxButton.png" />
+    <Resource Include="src\control\images\MinButton.png" />
+    <Resource Include="src\control\images\Nest1.bmp" />
+    <Resource Include="src\control\images\Nest2.JPG" />
+    <Resource Include="src\control\images\Nest3.jpg" />
+    <Resource Include="src\control\images\openButton.png" />
+    <Resource Include="src\control\images\people2.bmp" />
+    <Resource Include="src\control\images\people3.bmp" />
+    <Resource Include="src\control\images\run.JPG" />
+    <Resource Include="src\control\images\saveButton.png" />
+    <Resource Include="src\control\images\strokeInGraphicButton.png" />
+    <Resource Include="src\control\images\strokeToImage.png" />
+    <Resource Include="src\control\images\正序.png" />
+    <Resource Include="src\control\images\移动-滑动状态_r13_c22.png" />
+    <Resource Include="src\control\images\逆序.png" />
+    <Resource Include="src\cursor\Rotate.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resource\副本 ICO-1641.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Screen.PNG" />
+    <Resource Include="src\control\images\BtnBackScreen.png" />
+    <Resource Include="src\control\images\BtnScreen.png" />
+    <Resource Include="src\control\VideoAnnotation\QQ截图20110617151210.png" />
+    <Resource Include="src\control\VideoAnnotation\QQ截图20110701161627.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\3.0\WPF\Microsoft.Expression.Blend.WPF.targets" />
+  -->
+</Project>

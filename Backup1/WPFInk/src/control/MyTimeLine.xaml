@@ -1,0 +1,14 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="WPFInk.MyTimeLine"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Height="60" Width="1250">
+
+	<Grid x:Name="LayoutRoot"  MouseMove="LayoutRoot_MouseMove" MouseLeftButtonUp="LayoutRoot_MouseLeftButtonUp" MouseLeave="LayoutRoot_MouseLeave" Margin="0" Height="60" VerticalAlignment="Top" Background="White">
+		<Rectangle Fill="White"/>
+	</Grid>
+</UserControl>

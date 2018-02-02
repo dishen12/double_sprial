@@ -1,0 +1,72 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:WPFInk" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	x:Class="WPFInk.VideoSummarizationControl"
+	x:Name="Window"
+	Title="VideoSummarizationControl" mc:Ignorable="d" WindowState="Maximized" Height="983" Width="1280">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid x:Name="TableGrid" Background="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="0.50*"/>
+                <ColumnDefinition Width="0.25*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.8*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Fill="White" Stroke="Black" Grid.Column="1" Visibility="Collapsed"/>
+            <Border x:Name="border" Margin="0" BorderThickness="1" Padding="2,2,2,4" Grid.Column="0" Background="Black" BorderBrush="White">
+                <MediaElement x:Name="mediaPlayer" Stretch="Fill" OpacityMask="#FF060202" UnloadedBehavior="Manual" RenderTransformOrigin="0.5,0.5" MediaOpened="mediaPlayer_MediaOpened"/>
+            </Border>
+            <local:InkFrame x:Name="summarization" Margin="0" Grid.RowSpan="2" d:LayoutOverrides="Width, Height" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Background="White"/>
+            <ScrollViewer x:Name="keyFrameListScrollViewer" Margin="0" Grid.RowSpan="3" Grid.Row="1" Visibility="Collapsed">
+                <local:InkFrame x:Name="keyFrameList" Margin="0"/>
+            </ScrollViewer>
+            <ScrollViewer x:Name="keyFrameListScrollViewer2" Grid.Column="2" Margin="0" Grid.RowSpan="3" Grid.Row="1" Visibility="Collapsed">
+                <local:InkFrame x:Name="keyFrameList2" Margin="0"/>
+            </ScrollViewer>
+            <InkCanvas x:Name="AnnotationInkCanvas" Grid.Column="0" Margin="0" Background="{x:Null}" EditingModeInverted="None" EditingMode="None" Cursor="Arrow"/>
+            	
+            <MediaElement x:Name="hyperLinkPlayer" Margin="2,2,0,0" UnloadedBehavior="Manual" HorizontalAlignment="Left" Width="100" Grid.Column="1" Height="80" VerticalAlignment="Top" Cursor="Hand" OpacityMask="Black" Visibility="Collapsed" />
+            <Slider x:Name="_timeBar" VerticalAlignment="Top" Grid.Row="1" Margin="0,2,0,0" Maximum="1" BorderThickness="2,2,2,0"/>
+            <TextBox x:Name="VideoProgressText" HorizontalAlignment="Right" VerticalAlignment="Top" TextWrapping="Wrap" Grid.Row="1" Width="120" Margin="0,27,10,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
+            <Grid x:Name="GridBtn" Margin="0,27,0,0" Grid.Row="1">
+            	<Button x:Name="SpiralButton" Margin="2,35,2,0" Content="Spiral Summarization" Click="SpiralButton_Click" Height="35" VerticalAlignment="Top" IsCancel="True"/>
+            	<Button x:Name="BtnMerge" Click="BtnMerge_Click" Content="Merge" Margin="2,105,2,0" VerticalAlignment="Top" Height="35" IsEnabled="True"/>
+            	<Button x:Name="BtnCut" Content="Cut" Margin="2,105,2,0" VerticalAlignment="Top" Height="35" Click="BtnCut_Click" IsEnabled="True" Visibility="Collapsed"/>
+            	<Button x:Name="BtnHyperLink" VerticalAlignment="Top" Content="HyperLink" Margin="2,140,2,0"  Height="35" Click="BtnHyperLink_Click" IsEnabled="True"/>
+            	<Button x:Name="TileButton" Margin="2,35,2,0" Content="Tile  Summarization" Height="35" VerticalAlignment="Top" Click="TileButton_Click"/>
+            	<Button x:Name="TapestryButton" Margin="2,35,2,0" Content="Tapestry  Summarization" Height="35" VerticalAlignment="Top" Click="TapestryButton_Click"/>
+            	<Button x:Name="BtnVideoFullScreen" VerticalAlignment="Top" Content="Video Full Screen" Height="35" Margin="2,70,2,0"  Click="BtnFullScreen_Click"/>
+            	<Button x:Name="BtnNavigation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Content="Navigation" Height="35" Margin="2,0,0,0" Click="BtnNavigation_Click" Visibility="Collapsed"/>
+            	<Button x:Name="BtnAutoring" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Content="Autoring" Margin="77,0,0,0" Height="35" Click="BtnAutoring_Click" Visibility="Collapsed"/>
+            </Grid>
+            <local:ControlPanel x:Name="_keyframeControlPanel" HorizontalAlignment="Left" Margin="0,0,0,-141" d:LayoutOverrides="Width" Grid.Column="1" VerticalAlignment="Top" Grid.RowSpan="2" Visibility="Collapsed" Grid.ColumnSpan="2"/>
+			<Label x:Name="InkCanvasShowRate" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="100%" Grid.Row="1" Grid.Column="2" Margin="0,0,10,10" Foreground="White"/>
+			<Border x:Name="BdQuestion" Margin="0,130,0,0" BorderThickness="1" Grid.Row="1" Visibility="Visible">
+				<Grid x:Name="QuestionGrid" Margin="0">							
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0.1*"/>
+						<RowDefinition Height="0.9*"/>
+					</Grid.RowDefinitions>
+					<Label x:Name="TitleLbl" HorizontalAlignment="Left" Content="Label" Width="118.667" Height="40" Foreground="White" Margin="0,11.2,0,0" VerticalAlignment="Bottom" Visibility="Collapsed"/>
+					<Button x:Name="BtnStart" Content="Start" Click="BtnStart_Click" Margin="0,8.727,8,8" HorizontalAlignment="Right" Width="100" IsEnabled="False" Visibility="Collapsed"/>
+					<Grid x:Name="QuestionContentGrid" Margin="1,1,-1,-1" Grid.RowSpan="6" Grid.Row="1">							
+						<Grid.RowDefinitions>
+							<RowDefinition Height="0.2*"/>
+							<RowDefinition Height="0.2*"/>	
+							<RowDefinition Height="0.2*"/>
+							<RowDefinition Height="0.2*"/>	
+							<RowDefinition Height="0.2*"/>	
+						</Grid.RowDefinitions>
+					</Grid>
+				</Grid>
+			</Border>
+
+        </Grid>
+        <local:UserStudySettings x:Name="_userStudySettings" d:IsHidden="True"/>
+    </Grid>
+</Window>

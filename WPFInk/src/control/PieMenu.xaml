@@ -1,0 +1,37 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:local="clr-namespace:WPFInk"
+	x:Class="WPFInk.PieMenu"
+	x:Name="UserControl"
+	d:DesignWidth="100" d:DesignHeight="100  " Width="110" Height="110">
+
+	<Grid x:Name="LayoutRoot" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="110">
+		<Ellipse Stroke="Black" Fill="#FF7E7878" Width="110" Height="110"/>
+		<Ellipse Stroke="Black" Width="100" Height="100" Fill="#FFF2EEEE"/>
+		<Button x:Name="ZoomButton" Margin="-7,5,42,0" VerticalAlignment="Top" Style="{DynamicResource ButtonStyle2}" Click="ZoomButton_Click">
+			<Grid>
+				<Path x:Name="path" Stretch="Fill" Stroke="Black" StrokeThickness="1" Width="50" Height="75" Data="M55,55 L55,5 A50,50,0,0,0,12,80 L55,55 z" d:LayoutOverrides="Height" Fill="#FFE0DADA"/>
+				<Image Source="images/变焦-默认状态_r17_c22.png" Width="30" HorizontalAlignment="Left" Margin="11,21.187,0,24.813" d:LayoutOverrides="Width" Height="29" ToolTip="Zoom"/>
+			</Grid>
+		</Button>
+		<Button x:Name="RotateButton" Margin="11.5,54.5,11.5,5.5" Style="{DynamicResource ButtonStyle2}" d:LayoutOverrides="Height" Click="RotateButton_Click">
+			<Grid>
+				<Path Stretch="Fill" Stroke="Black" StrokeThickness="1" HorizontalAlignment="Left" Width="86" Height="50" Data="M55,55 L12,80 A50,50,0,0,0,98,80 L55,55 z" d:LayoutOverrides="VerticalAlignment, Height"/>
+				<Image Source="images/旋转-当前状态_r7_c20.png" Width="30" Margin="29.5,11.187,27.5,9.813" Height="29" d:LayoutOverrides="VerticalAlignment" ToolTip="Rotate"/>
+			</Grid>
+		</Button>
+		<Button x:Name="MoveButton"  Margin="42,5,-7,0" VerticalAlignment="Top" Style="{DynamicResource ButtonStyle2}" Click="MoveButton_Click">
+			<Grid>
+				<Path Stretch="Fill" Stroke="Black" StrokeThickness="1" HorizontalAlignment="Left" Width="50" Height="75" Data="M50,50 L93,75 A50,50,0,0,0,50,0 L50,50 z" d:LayoutOverrides="Height"/>
+				<Image Source="images/移动-当前状态_r13_c20.png" Width="30" Margin="0,21.687,11,24.313" HorizontalAlignment="Right" d:LayoutOverrides="Width" Height="29" ToolTip="Move"/>
+			</Grid>
+		</Button>
+		<Button x:Name="CloseButton" Margin="92,-2.5,-2,0" VerticalAlignment="Top" Width="20" Height="20" Style="{DynamicResource ButtonStyle2}" Click="CloseButton_Click">
+			<Image Source="images/保存涂鸦_r3_c18.png" Width="16" Height="16"/>
+		</Button>
+	</Grid>
+</UserControl>

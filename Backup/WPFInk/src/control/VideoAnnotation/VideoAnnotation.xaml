@@ -1,0 +1,130 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:local="clr-namespace:WPFInk"
+	x:Class="WPFInk.VideoAnnotation"
+	x:Name="UserControl"
+	d:DesignWidth="616">
+	<UserControl.Resources>
+		<Storyboard x:Key="videoGradientStroryBoardIn">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer" Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:03" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="videoGradientStroryBoardOut">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer" Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="RightToLeftStoryboardIn">
+			<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+				<SplineThicknessKeyFrame KeyTime="00:00:00" Value="610,0,0,0"/>
+				<SplineThicknessKeyFrame KeyTime="00:00:03" Value="0"/>
+			</ThicknessAnimationUsingKeyFrames>
+			
+		</Storyboard>
+		<Storyboard x:Key="LeftToRightStoryboardOut">
+			<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+				<SplineThicknessKeyFrame KeyTime="00:00:00" Value="0"/>
+				<SplineThicknessKeyFrame KeyTime="00:00:03" Value="610,0,0,0"/>
+			</ThicknessAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="RightToLeftStoryboardOut">
+			<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+				<SplineThicknessKeyFrame KeyTime="00:00:00" Value="0"/>
+				<SplineThicknessKeyFrame KeyTime="00:00:03" Value="0,0,610,0"/>
+			</ThicknessAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="LeftToRightStoryboardIn">
+			<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+				<SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,0,610,0"/>
+				<SplineThicknessKeyFrame KeyTime="00:00:03" Value="0"/>
+			</ThicknessAnimationUsingKeyFrames>
+			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+				<SplineColorKeyFrame KeyTime="00:00:02" Value="#FF080707"/>
+			</ColorAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="TopToBottomStoryboardIn">
+			<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+				<SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,0,0,490"/>
+				<SplineThicknessKeyFrame KeyTime="00:00:03" Value="0"/>
+			</ThicknessAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="TopToBottomStoryboardOut">
+			<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+				<SplineThicknessKeyFrame KeyTime="00:00:00" Value="0"/>
+				<SplineThicknessKeyFrame KeyTime="00:00:03" Value="0,490,0,0"/>
+			</ThicknessAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="BottomToTopStoryboardIn">
+			<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+				<SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,490,0,0"/>
+				<SplineThicknessKeyFrame KeyTime="00:00:03" Value="0"/>
+			</ThicknessAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="BottomToTopStoryboardOut">
+			<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+				<SplineThicknessKeyFrame KeyTime="00:00:00" Value="0"/>
+				<SplineThicknessKeyFrame KeyTime="00:00:03" Value="0,0,0,490"/>
+			</ThicknessAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="RotateStoryboardIn">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mediaPlayer_rotate" Storyboard.TargetProperty="Angle">
+                <LinearDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <LinearDoubleKeyFrame KeyTime="00:00:01" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="#FFC7C7C7" Margin="0">
+			<!-- Button controls for play, pause, resume, and stop. -->
+			<Border x:Name="border" Margin="1,1,1,26" Background="#FF080707" BorderBrush="Black" BorderThickness="1">
+				<MediaElement x:Name="mediaPlayer" MediaFailed="Element_MediaOpenedFailed" MediaOpened="Element_MediaOpened"
+					Stretch="Fill" OpacityMask="#FF060202" MediaEnded="mediaPlayer_MediaEnded" UnloadedBehavior="Manual" RenderTransformOrigin="0.5,0.5" >
+					<MediaElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform x:Name="mediaPlayer_scale"/>
+							<SkewTransform/>
+							<RotateTransform x:Name="mediaPlayer_rotate"/>
+							<TranslateTransform x:Name="mediaPlayer_Translate"/>
+						</TransformGroup>
+					</MediaElement.RenderTransform>
+				</MediaElement>
+					
+			</Border>
+			<StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="1,0,0,-7.664" VerticalAlignment="Bottom" Height="40">
+				<Button x:Name="OpenFile" Margin="10,5" Content="Open" Click="OpenFile_Click" Style="{DynamicResource ButtonStyle2}" HorizontalAlignment="Left"/>
+				<Button x:Name="PlayButton"  Margin="-2,5,10,5" Content="Play" Click="PlayButton_Click" Style="{DynamicResource ButtonStyle2}" HorizontalAlignment="Left" />
+				<Button x:Name="PauseButton"  Margin="-2,5,10,5" Content="Pause" Click="PauseButton_Click" Style="{DynamicResource ButtonStyle2}" HorizontalAlignment="Left" />
+				<Button x:Name="StopButton"  Margin="-2,5,10,5" Content="Stop" Click="StopButton_Click" Style="{DynamicResource ButtonStyle2}" HorizontalAlignment="Left" />
+				<Button x:Name="ButtonDynamicAdd" Content="DAdd" Margin="10,5" Click="ButtonDynamicAdd_Click" Style="{DynamicResource ButtonStyle2}" BorderThickness="1" HorizontalAlignment="Left" Visibility="Collapsed"/>
+				<Button x:Name="ButtonStaticAdd" Content="SAdd" Margin="10,5" Click="ButtonStaticAdd_Click" Style="{DynamicResource ButtonStyle2}" Width="30" HorizontalAlignment="Left" Visibility="Collapsed"/>
+		
+			</StackPanel>
+			<Button x:Name="ButtonStaticOk"  Content="ok" Margin="280,0,0,-7.664" Opacity="0.99" HorizontalAlignment="Left" Click="ButtonStaticOk_Click" Style="{DynamicResource ButtonStyle2}" VerticalAlignment="Bottom" Height="30" BorderThickness="0,2,0,0" Visibility="Collapsed"/>
+			<Button x:Name="ButtonStaticStart" Content="Start" Margin="275,0,0,-7.664" HorizontalAlignment="Left" Click="ButtonStaticStart_Click" Style="{DynamicResource ButtonStyle2}" VerticalAlignment="Bottom" Height="30" BorderThickness="0,4,0,0" Visibility="Collapsed"/>
+			<TextBox x:Name="VideoProgress" Margin="0,0,-19,1.336" Height="20" Background="{x:Null}" RenderTransformOrigin="0.5,0.375" TextWrapping="Wrap" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="126.5"/>
+
+			<!-- Ths slider shows the progress of the media. -->
+			<Slider x:Name="timelineSlider" Margin="158.59,0,101.5,-0.664" Maximum="1" ValueChanged="SeekToMediaPosition" VerticalAlignment="Bottom" PreviewMouseLeftButtonDown="timelineSlider_PreviewMouseLeftButtonDown" PreviewMouseMove="timelineSlider_PreviewMouseMove" MouseLeave="timelineSlider_MouseLeave" Height="24" />
+			<local:InkFrame x:Name="Annotation_InkFrame" Margin="1,1,1,26" Width="{Binding Width, ElementName=border, Mode=Default}" Height="{Binding Height, ElementName=border, Mode=Default}" RenderTransformOrigin="0.5,0.5">
+				<local:InkFrame.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</local:InkFrame.RenderTransform>
+			</local:InkFrame>
+			<local:ControlPanel x:Name="Annotation_ControlPanel" d:LayoutOverrides="Height" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-150,-6,0,-263" Cursor="Arrow"/>
+			<Label x:Name="timeLabel" HorizontalAlignment="Left" Content="" Margin="0,539,0,0" VerticalAlignment="Top" BorderThickness="1" FontSize="10.667" Background="{x:Null}"/>
+        
+		
+    </Grid>
+</UserControl>

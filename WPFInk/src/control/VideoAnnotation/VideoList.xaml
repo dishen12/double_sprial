@@ -1,0 +1,56 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="WPFInk.VideoList"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Width="150" Height="20">
+	<UserControl.Resources>
+		<Storyboard x:Key="ListStoryboard">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="VideoList_ListBox" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+				<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource ListStoryboard}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+
+	<Grid x:Name="LayoutRoot" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150">
+		<Rectangle Fill="Blue" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="150" Height="15"/>
+		<Rectangle Fill="Blue" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="150" Height="20" RadiusX="5" RadiusY="5"/>
+		<Label x:Name="WindowTitle" HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Height="23" Content="VideoList" Foreground="#FFFEFEFE"/>
+		<Rectangle x:Name="HeadRectangle" VerticalAlignment="Top" Height="20" RenderTransformOrigin="0.5,0.5" Margin="0" MouseLeftButtonDown="HeadRectangle_MouseLeftButtonDown" MouseLeftButtonUp="HeadRectangle_MouseLeftButtonUp" MouseMove="HeadRectangle_MouseMove" RadiusX="5" RadiusY="5" Fill="#000000FF">
+			<Rectangle.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Rectangle.RenderTransform>
+		</Rectangle>
+		<Button x:Name="MaxButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Height="20" Style="{DynamicResource ButtonStyle2}" Margin="125.999,-0.501,0,0" Click="MaxButton_Click" Visibility="Collapsed">
+			<Image Source="../images/MaxButton.png" Width="16" Height="16" />
+		</Button>
+		<Button x:Name="MinButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Height="20" Style="{DynamicResource ButtonStyle2}" Margin="125.999,-0.501,0,0" Click="MinButton_Click">
+			<Image Source="../images/MinButton.png" Width="16" Height="16" />
+		</Button>
+		<Border x:Name="border" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" Width="150" BorderBrush="Black" BorderThickness="1" Background="White" Height="{Binding ActualHeight, ElementName=VideoList_ListBox, Mode=Default}">
+			<ListBox x:Name="VideoList_ListBox" Background="{x:Null}" Height="0" Width="150" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
+				<ListBox.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</ListBox.RenderTransform>
+			</ListBox>
+		</Border>
+	</Grid>
+</UserControl>

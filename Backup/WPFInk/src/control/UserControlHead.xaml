@@ -1,0 +1,20 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="WPFInk.UserControlHead"
+	x:Name="UserControl" Height="21">
+
+	<Grid x:Name="LayoutRoot">
+		<Rectangle Margin="0,5,1,1" Fill="Blue"/>
+		<Rectangle x:Name="HeadArea" Margin="0,0,1,1" Fill="Blue" RadiusX="5" RadiusY="5" MouseLeftButtonDown="HeadArea_MouseLeftButtonDown" MouseLeftButtonUp="HeadArea_MouseLeftButtonUp" MouseMove="HeadArea_MouseMove"/>
+		<Button x:Name="MinButton" Margin="119,0,2,1" Width="20" Style="{DynamicResource ButtonStyle2}" Click="MinButton_Click" HorizontalAlignment="Right">
+			<Image Source="images/MinButton.png" Width="16" Height="16"/>
+		</Button>
+		<Button x:Name="MaxButton" Margin="119,0,2,1" Width="20" Style="{DynamicResource ButtonStyle2}" Visibility="Collapsed" Click="MaxButton_Click" HorizontalAlignment="Right">
+			<Image Source="images/MaxButton.png" Width="16" Height="16"/>
+		</Button>
+	</Grid>
+</UserControl>

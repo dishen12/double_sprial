@@ -1,0 +1,1 @@
+[12/04/10 13:30:47:881] Discovering saliency object from `E:\WPFInk\WPFInk\bin\Release\attcut\15.png' with threshold 70. Saving results to E:\WPFInk\WPFInk\bin\Release\attcut\

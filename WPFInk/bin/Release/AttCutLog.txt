@@ -1,0 +1,1 @@
+[11/08/10 10:09:30:008] Discovering saliency object from `E:/WPFInk/cache/temp11.bmp' with threshold 70. Saving results to E:/WPFInk/cache/\

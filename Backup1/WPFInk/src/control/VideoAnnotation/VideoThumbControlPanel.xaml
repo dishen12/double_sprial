@@ -1,0 +1,63 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="WPFInk.VideoThumbControlPanel"
+	x:Name="UserControl"
+	d:DesignWidth="640" Width="140" Height="260">
+
+	<Grid x:Name="LayoutRoot" Margin="0,1.5,0,0">
+	<Rectangle Stroke="Blue" Margin="0" RadiusX="5" RadiusY="5" Fill="Blue"/>
+		<Rectangle Fill="#FFC9C9C9" Margin="0,21,0,0" Width="140" RadiusX="5" RadiusY="5" Stroke="#FF0447FA"/>
+		<Rectangle Margin="0,5,0,0" VerticalAlignment="Top" Height="15" Width="140" Fill="Blue"/>
+		<Rectangle x:Name="HeadArea" Margin="0" VerticalAlignment="Top" Height="20" Width="140" RadiusX="5" RadiusY="5" MouseLeftButtonDown="HeadArea_MouseLeftButtonDown" MouseLeftButtonUp="HeadArea_MouseLeftButtonUp" MouseMove="HeadArea_MouseMove" Fill="Blue"/>
+		
+		<Button Margin="25.667,26.5,0,0" VerticalAlignment="Top" Height="36" HorizontalAlignment="Left" Width="36" x:Name="Open"  Click="Open_Click" Template="{DynamicResource ButtonStyle}">
+			<Image Height="30" Width="30" Source="../images/openButton.png" ToolTip="Open"/>
+		</Button>
+		<Button Margin="0,26.814,28,0" VerticalAlignment="Top" Height="36" x:Name="Save" HorizontalAlignment="Right" Width="36"  Click="Save_Click" Template="{DynamicResource ButtonStyle}">
+			<Image Height="30" Width="30" Source="../images/saveButton.png" ToolTip="Save"/>
+		</Button>
+		<Button Margin="0,63.5,28,0" VerticalAlignment="Top" Height="36" x:Name="Button_Select" HorizontalAlignment="Right" Width="36" Click="Button_Select_Click" Template="{DynamicResource ButtonStyle}">
+			<Image Height="30" Width="30" Source="../images/选择-默认状态_r2_c2.png" ToolTip="Select"/>
+		</Button>
+		<Button Margin="25.5,64.424,0,0" x:Name="Gesture" Click="Gesture_Click" VerticalAlignment="Top" Height="36" HorizontalAlignment="Left" Width="36" Template="{DynamicResource ButtonStyle}">
+			<Image Height="30" Width="30" Source="../images/gestureButton.png" ToolTip="Gesture"/>
+		</Button>
+		<Button x:Name="MinButton" Margin="91,3,29,0" VerticalAlignment="Top" Width="20" Height="20" Style="{DynamicResource ButtonStyle2}" Click="MinButton_Click" BorderThickness="1" Visibility="Collapsed">
+			<Image Source="QQ截图20110701161627.png" Width="16" Height="16"/>
+		</Button>
+		<Button x:Name="MaxButton" Margin="115,-5,5,0" VerticalAlignment="Top" Width="20" Height="20" Style="{DynamicResource ButtonStyle2}" Visibility="Collapsed" Click="MaxButton_Click" BorderThickness="1">
+			<Image Source="QQ截图20110701161627.png" Width="16" Height="16"/>
+		</Button>
+		<Button x:Name="LineButton" Margin="25.5,102,0,0" VerticalAlignment="Top" Height="36" Template="{DynamicResource ButtonStyle}" Width="36" HorizontalAlignment="Left" d:LayoutOverrides="Width" Click="LineButton_Click">
+			<Image Source="../images/Line.png" Width="30" Height="30" ToolTip="Arrow"/>
+		</Button>
+		<Button x:Name="undoButton" Margin="27,215,0,0" VerticalAlignment="Top" Width="36" Height="36" HorizontalAlignment="Left" Template="{DynamicResource ButtonStyle}" Click="undoButton_Click">
+			<Image Source="../images/撤销-默认状态_r13_c2.png" Width="30" Height="30" ToolTip="Undo"/>
+		</Button>
+		<Button x:Name="redoButton" Margin="79,215,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Template="{DynamicResource ButtonStyle}" Click="redoButton_Click">
+			<Image Source="../images/重做-默认状态_r12_c5.png" Width="30" Height="30" ToolTip="Redo"/>
+		</Button>
+		<Button Margin="0,99.5,28,0" VerticalAlignment="Top" Height="36" x:Name="ArrowButton" HorizontalAlignment="Right" Width="36" Template="{DynamicResource ButtonStyle}" Click="ArrowButton_Click">
+			<Image Height="30" Width="30" Source="../images/arrowButton.png" ToolTip="Play"/>
+		</Button>
+		<Button x:Name="MoveButton" Margin="25.5,135,0,0" VerticalAlignment="Top" Height="36" Template="{DynamicResource ButtonStyle}" Width="36" HorizontalAlignment="Left" d:LayoutOverrides="Width" Click="MoveButton_Click">
+			<Image Source="../images/移动-当前状态_r13_c20.png" Width="30" Height="30" ToolTip="Move"/>
+		</Button>
+		<Button Margin="0,132.5,28,0" VerticalAlignment="Top" Height="36" x:Name="ClearAll" HorizontalAlignment="Right" Width="36" Template="{DynamicResource ButtonStyle}" Click="ClearAll_Click">
+			<Image Height="30" Width="30" Source="../images/clearAllButton.png" ToolTip="Clear All"/>
+		</Button>
+		<Button x:Name="AscByVideoPathButton" Margin="25.5,174,0,0" VerticalAlignment="Top" Height="36" Template="{DynamicResource ButtonStyle}" Width="36" HorizontalAlignment="Left" d:LayoutOverrides="Width" Click="AscByVideoPathButton_Click">
+			<Image Source="../images/正序.png" Width="30" Height="30" ToolTip="SortAsc"/>
+		</Button>
+		<Button x:Name="DescByVideoPathButton" Margin="0,174,27.5,0" VerticalAlignment="Top" Height="36" Template="{DynamicResource ButtonStyle}" Width="36" Click="DescByVideoPathButton_Click" HorizontalAlignment="Right" d:LayoutOverrides="Width">
+			<Image Source="../images/逆序.png" Width="30" Height="30" ToolTip="SortDesc"/>
+		</Button>
+		<Button x:Name="hidden"  Margin="115,1,5,0" VerticalAlignment="Top" Height="20" Style="{DynamicResource ButtonStyle2}"  Click="Hidden_Click" Foreground="Black" Width="20">
+			<Image Source="../images/CloseButton.png" Width="16" Height="16"/>
+		</Button>
+	</Grid>
+</UserControl>

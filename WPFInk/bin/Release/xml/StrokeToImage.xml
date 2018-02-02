@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><ImageCollection><Image stroke="dog" imageName="狗"/>
+<Image stroke="狗" imageName="狗"/>
+<Image stroke="猫" imageName="猫"/>
+<Image stroke="cat" imageName="猫"/>
+<Image stroke="老鼠" imageName="老鼠"/>
+<Image stroke="mouse" imageName="老鼠"/>
+<Image stroke="长颈鹿" imageName="长颈鹿"/>
+<Image stroke="大象" imageName="大象"/>
+<Image stroke="袋鼠" imageName="袋鼠"/>
+<Image stroke="鹅" imageName="鹅"/>
+<Image stroke="海豹" imageName="海豹"/>
+<Image stroke="花" imageName="花"/>
+<Image stroke="恐龙" imageName="恐龙"/>
+<Image stroke="鲨鱼" imageName="鲨鱼"/>
+<Image stroke="蛇" imageName="蛇"/>
+<Image stroke="松鼠" imageName="松鼠"/>
+<Image stroke="兔子" imageName="兔子"/>
+<Image stroke="乌龟" imageName="乌龟"/></ImageCollection>

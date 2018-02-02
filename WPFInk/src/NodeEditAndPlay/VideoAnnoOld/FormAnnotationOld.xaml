@@ -1,0 +1,15 @@
+﻿<Window x:Class="WPFInk.FormAnnotationOld"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="FormAnnotationOld" Height="309" Width="735" Background="#FFA4A4A4" HorizontalAlignment="Left" VerticalAlignment="Top">
+    <Grid Background="White" Width="705">
+        <WindowsFormsHost Margin="216,0,221,25" Name="windowsFormsHostFrameMain" Background="#FF000000" />
+        <WindowsFormsHost Margin="11,0,0,96" x:Name="windowsFormsHostFrameLast" HorizontalAlignment="Left" Width="200" Background="#FF000000" />
+        <WindowsFormsHost HorizontalAlignment="Right" Margin="0,0,15,96" Name="windowsFormsHostFrameNext" Width="200" Background="#FF000000" />
+        <WindowsFormsHost Margin="105,0,0,25" Name="windowsFormsHostPenWidth" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="73" RenderTransformOrigin="0.507,0.464" />
+        <Label Height="28" HorizontalAlignment="Left" Margin="35,0,0,53" Name="label1" VerticalAlignment="Bottom" Width="70" Foreground="#FF000000" Background="#00FFFFFF">Color</Label>
+        <Label Height="28" HorizontalAlignment="Left" Margin="35,0,0,19" Name="label2" VerticalAlignment="Bottom" Width="64">PenWidth</Label>
+        <WindowsFormsHost Height="22" Margin="105,0,0,58" Name="windowsFormsHostPenColor" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="73" />
+        <WindowsFormsHost Height="98" HorizontalAlignment="Right" Name="windowsFormsHostpictureBox" VerticalAlignment="Bottom" Width="214" Margin="0,0,1,0" />
+    </Grid>
+</Window>

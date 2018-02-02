@@ -1,0 +1,18 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="WPFInk.Question"
+	x:Name="QuestionControl" BorderBrush="Black" Foreground="Black">
+
+	<Grid x:Name="LayoutRoot" Margin="10,0">
+		<Grid.RowDefinitions>
+				<RowDefinition Height="0.6*"/>
+				<RowDefinition Height="0.4*"/>		
+		</Grid.RowDefinitions>
+		<TextBlock x:Name="TBQuestion" Margin="0" Background="#FFD6D6D6" TextWrapping="Wrap" FontSize="16"/>
+		<StackPanel x:Name="RadioStackPanel" Margin="0,0.847,0,0" Orientation="Horizontal" Grid.Row="1"/>
+	</Grid>
+</UserControl>

@@ -1,0 +1,12 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WPFInk" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="WPFInk.PlayerPolyTimeline"
+    Title="PlayerPolyTimeline" Height="1053" Width="1526" WindowState="Maximized" mc:Ignorable="d">
+	<Grid>
+        
+		<local:MyTimeLine x:Name="_myTimeLine" Margin="0,775,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1250"/>
+		<MediaElement x:Name="videoPlayer" MediaOpened="videoPlayer_MediaOpened" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1188" Height="750" Margin="134,25,196,0" LoadedBehavior="Manual"/>
+        
+	</Grid>
+</Window>
